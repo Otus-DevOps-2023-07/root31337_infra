@@ -3,7 +3,7 @@ root31337 Infra repository
 
 Homework 3 (cloud-bastion)
 
-bastion_public_IP = 51.250.1.33
+bastion_IP = 51.250.1.33
 bastion_local_IP = 10.128.0.19
 someinternalhost_IP = 10.128.0.26
 
