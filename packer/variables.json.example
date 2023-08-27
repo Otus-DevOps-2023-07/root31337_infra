@@ -1,0 +1,7 @@
+{
+    "folder_id": "dfgdfgdfhfnyfgyt56",
+    "source_image_family": "ubuntu-1604-lts",
+    "service_account_key_file": "~/Otus/key.json.example",
+    "zone": "ru-central1-a",
+    "use_ipv4_nat": "true"
+}
