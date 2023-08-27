@@ -47,3 +47,14 @@ yc compute instance create \
    --zone ru-central1-a \
    --ssh-key ~/.ssh/appuser.pub \
    --metadata startup-script-url='https://github.com/Otus-DevOps-2023-07/root31337_infra/blob/cloud-testapp/startup-script.sh'
+
+
+Workhome 5 (packer-base)
+
+ Собрал образ через $packer build ./ubuntu16.pkr.hcl из полученного образа создал VM на котурую скопировал из git приложение reddit и запустил
+
+ Переопределил переменные через variables в variables.pkr.hcl
+
+ Сдедал образ в котором устанавливаются зависимости и само приложение, сборка $packer build ./immutable.pkr.hcl
+
+Создал скрипт create-reddit-vm.sh в директории config-scripts который создает VM из созданного ранее образа (с установокой зависимостей, приложением и его запуском)
