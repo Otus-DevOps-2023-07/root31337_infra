@@ -29,3 +29,21 @@ Host someinternalhost
   ForwardAgent yes
   User appuser
   ProxyJump appuser@51.250.1.33 (либо ProxyCommand ssh -W %h:%p -i ~/.ssh/appuser appuser@51.250.1.33
+
+Workhome 4 (cloud-testapp)
+
+testapp_IP = 84.201.175.48
+testapp_port = 9292
+
+Для создания инстанса с уже запущенным приложением: (Не разобрался как передать скрипт для выполнения, только параметры ключ:значение). Буду признателен за подсказку.
+
+yc compute instance create \
+   --name reddit-app \
+   --hostname reddit-app \
+   --memory=4 \
+   --create-boot-disk image-folder-id=standard-images,image-family=ubuntu-1604-lts,size=10GB \
+   --network-interface subnet-name=default-ru-central1-a,nat-ip-version=ipv4 \
+   --metadata serial-port-enable=1 \
+   --zone ru-central1-a \
+   --ssh-key ~/.ssh/appuser.pub \
+   --metadata startup-script-url='https://github.com/Otus-DevOps-2023-07/root31337_infra/blob/cloud-testapp/startup-script.sh'
