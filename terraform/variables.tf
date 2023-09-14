@@ -26,3 +26,7 @@ variable private_key {
 variable subnet_id {
   description = "var.subnet_id"
 }
+
+variable image_id {
+  description = "var.image_id"
+}
