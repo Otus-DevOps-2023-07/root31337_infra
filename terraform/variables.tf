@@ -22,3 +22,7 @@ variable service_account_key_file {
 variable private_key {
  description = "private_key"
 }
+
+variable subnet_id {
+  description = "var.subnet_id"
+}
