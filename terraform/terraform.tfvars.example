@@ -1,6 +1,7 @@
 cloud_id = "b1g5lp0XXXXXXXX"
 folder_id = "b1g0bgaXXXXXXX"
 zone = "ru-central1-X"
+subnet_id = "subnet_id"
 image_id = "fd89glgotXXXXXX"
 service_account_key_file = "~/Otus/key.json"
 private_key = "~/.ssh/ubuntu"
