@@ -1,38 +1,42 @@
-variable "app_image_id" {
-  description = "Default image for reddit-app"
-  default     = "reddit-app-ansible"
+variable "cloud_id" {
+  description = "Cloud"
+}
+variable "folder_id" {
+  description = "Folder"
+}
+variable "zone" {
+  description = "Zone"
+  # Значение по умолчанию
+  default = "ru-central1-a"
+}
+variable "public_key" {
+  # Описание переменной
+  description = "Path to the public key used for ssh access"
 }
 
-variable "ssh_key_file" {
-  description = "Path to SSH pubkey that is transferred to VM via cloud-init metadata"
-  type        = string
-  default     = null
+variable "service_account_key_file" {
+  description = "service_account_key_file"
+}
+
+
+variable "private_key" {
+  description = "private_key"
 }
 
 variable "subnet_id" {
-  description = "Default VPC subnet used"
-  type        = string
-  default     = null
+  description = "var.subnet_id"
 }
 
-variable "ssh_key_private_file" {
-  description = "SSH private key that is transferred to APP instance"
-  type        = string
-  default     = null
+variable "image_id" {
+  description = "var.image_id"
 }
 
-variable "name" {
-  type = string
+variable "app_disk_image" {
+  description = "Disk image for reddit app"
+  default     = "app_db_disk_image"
 }
 
-variable "hostname" {
-  type = string
-}
-
-variable "database_url" {
-  type = string
-}
-
-variable "user" {
-  default = "ubuntu"
+variable "db_disk_image" {
+  description = "var.image_id"
+  default     = "db_disk_image"
 }
