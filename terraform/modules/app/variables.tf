@@ -1,5 +1,4 @@
 
-}
 variable "zone" {
   description = "Zone"
   # Значение по умолчанию
