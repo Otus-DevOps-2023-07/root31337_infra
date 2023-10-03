@@ -9,11 +9,11 @@ variable "zone" {
   # Значение по умолчанию
   default = "ru-central1-a"
 }
-variable "public_key" {
+variable "public_key_path" {
   # Описание переменной
   description = "~/.ssh/yc-user.pub"
 }
-variable "private_key {
+variable "private_key_path" {
   # Описание переменной private key
   description = "~/.ssh/yc-user"
 }
