@@ -11,11 +11,11 @@ variable "zone" {
 }
 variable "public_key_path" {
   # Описание переменной
-  description = "~/.ssh/yc-user.pub"
+  description = "ssh/yc-user.pub"
 }
 variable "private_key_path" {
   # Описание переменной private key
-  description = "~/.ssh/yc-user"
+  description = "ssh/yc-user"
 }
 variable "image_id" {
   description = "Disk image"
