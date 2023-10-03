@@ -1,8 +1,4 @@
-variable "cloud_id" {
-  description = "Cloud"
-}
-variable "folder_id" {
-  description = "Folder"
+
 }
 variable "zone" {
   description = "Zone"
@@ -14,14 +10,6 @@ variable "public_key" {
   description = "Path to the public key used for ssh access"
 }
 
-variable "service_account_key_file" {
-  description = "service_account_key_file"
-}
-
-
-variable "private_key" {
-  description = "private_key"
-}
 
 variable "subnet_id" {
   description = "var.subnet_id"
