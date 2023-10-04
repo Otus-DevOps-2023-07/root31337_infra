@@ -19,7 +19,7 @@ private_key_path         = var.private_key_path
 module "db" {
 source = "../modules/db"
 public_key_path          = var.public_key_path
-private_key_path         = var.private_key
+private_key_path         = var.private_key_path
 db_disk_image = var.db_disk_image
 subnet_id = var.subnet_id
 service_account_key_file = var.service_account_key_file
