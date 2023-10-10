@@ -1,11 +1,11 @@
-terraform {
- required_providers {
-   yandex = {
-     source  = "yandex-cloud/yandex"
-     version = "0.95.0"
-   }
- }
-}
+# terraform {
+#  required_providers {
+#    yandex = {
+#      source  = "yandex-cloud/yandex"
+#      version = "0.95.0"
+#    }
+#  }
+# }
 
 provider "yandex" {
 service_account_key_file = var.service_account_key_file
@@ -21,7 +21,7 @@ subnet_id = var.subnet_id
 service_account_key_file = var.service_account_key_file
 folder_id                = var.folder_id
 image_id                 = var.image_id
-cloud_id                 = var.cloud_id
+cloud_id                 = var.cloud_idcd
 private_key_path         = var.private_key_path
 }
 module "db" {
