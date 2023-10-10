@@ -13,7 +13,7 @@ subnet_id = var.subnet_id
 service_account_key_file = var.service_account_key_file
 folder_id                = var.folder_id
 image_id                 = var.image_id
-cloud_id                 = var.cloud_idcd
+cloud_id                 = var.cloud_id
 private_key_path         = var.private_key_path
 }
 module "db" {
