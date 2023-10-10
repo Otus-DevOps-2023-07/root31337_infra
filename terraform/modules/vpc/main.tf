@@ -1,11 +1,4 @@
-terraform {
-  required_providers {
-    yandex = {
-      source  = "yandex-cloud/yandex"
-      version = "0.95.0"
-    }
-  }
-}
+
 
 resource "yandex_vpc_network" "app-network" {
   name = "app-network"
