@@ -1,8 +1,10 @@
 variable "cloud_id" {
   description = "Cloud"
+  default     = ""
 }
 variable "folder_id" {
   description = "Folder"
+  default = "b1g5q2lccug3i0j92ksh"
 }
 variable "zone" {
   description = "Zone"
@@ -11,32 +13,29 @@ variable "zone" {
 }
 variable "public_key_path" {
   # Описание переменной
-  description = "Path to the public key used for ssh access"
+  description = "~/.ssh/yc-user.pub"
 }
-
-variable "service_account_key_file" {
-  description = "service_account_key_file"
-}
-
-
 variable "private_key_path" {
-  description = "private_key"
+  # Описание переменной private key
+  description = "Path to the private key"
+  default = "~/.ssh/yc-user"
 }
-
-variable "subnet_id" {
-  description = "var.subnet_id"
-}
-
 variable "image_id" {
-  description = "var.image_id"
+  description = "Disk image"
+  default     = "fd8rjvlkb3ma424svaon"
 }
-
-variable "app_disk_image" {
+variable "subnet_id" {
+  description = "Subnet"
+}
+variable "service_account_key_file" {
+  description = "/home/ubuntu/git/key.json"
+  default = "/home/ubuntu/git/key.json"
+}
+variable app_disk_image {
   description = "Disk image for reddit app"
-  default     = "app_db_disk_image"
+  default = "reddit-app"
 }
-
-variable "db_disk_image" {
-  description = "var.image_id"
-  default     = "db_disk_image"
+variable db_disk_image {
+description = "Disk image for reddit db"
+default = "reddit-db-base"
 }
