@@ -1,28 +1,36 @@
 {
-    "builders": [
-      {
-          "type": "yandex",
-
-          "service_account_key_file": "key.json.example",
-
-          "folder_id": "b1g0bgapni0osi095ffl",
-          "source_image_family": "ubuntu-1604-lts",
-          "image_name": "reddit-basejson-Q${formatdate(\"MM-DD-YYYY\", timestamp())}",
-          "image_family": "reddit-base",
-          "ssh_username": "ubuntu",
-          "platform_id" : "standard-v1",
-          "zone": "{{user `zone`}}",
-          "use_ipv4_nat": "{{ user `use_ipv4_nat`}}"
-      }
+  "builders": [
+  {
+    "type": "yandex",
+    "service_account_key_file": "{{user `service_account_key_file`}}",
+    "folder_id": "{{user `folder_id`}}",
+    "zone": "{{user `zone`}}",
+    "subnet_id": "{{user `subnet_id`}}",
+    "use_ipv4_nat": "{{user `use_ipv4_nat`}}",
+    "source_image_family": "{{user `source_image_family`}}",
+    "image_family": "{{user `image_family`}}",
+    "ssh_username": "{{user `ssh_username`}}",
+    "platform_id": "{{user `platform_id`}}",
+    "image_name": "reddit-app-base"
+  }
   ],
-
-    "provisioners": [
-        {
-            "type": "shell",
-            "pause_before": "1m",
-            "script": "./scripts/install_ruby.sh",
-            "execute_command": "sudo {{.Path}}"
-        }
-
-    ]
+  "provisioners": [
+  {
+    "type": "shell",
+    "inline": ["echo set debconf to Noninteractive","echo 'debconf debconf/frontend select Noninteractive' | sudo debconf-set-selections"]
+  },
+  {
+    "type": "shell",
+    "script": "scripts/shutdown-apt-services.sh"
+  },
+  {
+    "type": "shell",
+    "script": "scripts/install_ruby.sh",
+    "execute_command": "sudo {{.Path}}"
+  },
+  {
+    "type": "shell",
+    "inline": ["sudo systemctl enable apt-daily.timer", "sudo systemctl enable apt-daily-upgrade.timer"]
+  }
+  ]
 }
