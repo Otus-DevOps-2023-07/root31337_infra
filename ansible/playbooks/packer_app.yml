@@ -1,15 +1,14 @@
 ---
-- name: Install Ruby && Bundler
+- name: Install Ruby
   hosts: all
-  become: true
+  become: yes
   tasks:
-
-  - name: Install ruby and rubygems and required packages
-    apt:
-      name: "{{item}}"
-      state: present
-      update_cache: yes
-    with_items:
-      - ruby-full
-      - ruby-bundler
-      - build-essential
+    - name: Install ruby and bundle
+      apt:
+        name: "{{item}}"
+        state: present
+        update_cache: yes
+      loop:
+        - ruby-full
+        - ruby-bundler
+        - build-essential
