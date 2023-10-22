@@ -1,0 +1,4 @@
+---
+db_host: "{{ db_host_addr }}"
+env: local
+deploy_user: ubuntu
