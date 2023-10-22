@@ -11,6 +11,6 @@ all:
 
   vars:
     remote_user: ubuntu
-    private_key_file: ~/.ssh/yc-user
+    private_key_file: ~/.ssh/ubuntu
     db_host_internal: 10.128.0.3
 

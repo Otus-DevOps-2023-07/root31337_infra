@@ -8,7 +8,7 @@
 - hosts: db
   become: yes
   roles:
-    - db
+    - db7
 
       #- import_playbook: users.yml
 - import_playbook: base.yml
