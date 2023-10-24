@@ -26,7 +26,7 @@
         },
         {
             "type": "shell",
-            "script": "./scripts/install_ruby.sh",
+            "script": "./packer/scripts/install_mongodb.sh",
             "execute_command": "sudo {{.Path}}"
         }
     ]

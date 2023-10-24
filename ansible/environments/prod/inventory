@@ -1,0 +1,8 @@
+[all:vars]
+db_host_addr=192.168.10.24
+
+[app]
+appserver ansible_host=62.84.127.115
+
+[db]
+dbserver ansible_host=158.160.41.146
