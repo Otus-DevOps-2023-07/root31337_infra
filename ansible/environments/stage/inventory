@@ -1,5 +1,5 @@
 [all:vars]
-db_host_addr=192.168.10.24
+db_host_addr=10.128.0.3
 
 [app]
 appserver ansible_host=662.84.127.115
