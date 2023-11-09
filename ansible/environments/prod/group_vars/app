@@ -1,5 +1,9 @@
+db_host: 192.168.0.12
+# db_host: "{{ db_host_internal }}"
 nginx_sites:
- default::
-  - listen 80
-  - server_name "reddit"
-  - location / { proxy_pass http://127.0.0.1:9292; }
+  default:
+    - listen 80
+    - server_name "reddit"
+    - location / {
+        proxy_pass http://127.0.0.1:9292;
+      }

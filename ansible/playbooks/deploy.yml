@@ -1,30 +1,22 @@
----
-- name: Install and start app
+- name: Deploy App
   hosts: app
-  become: yes
   vars:
-   deploy_user: ubuntu
-
+   deploy_user: appuser
+   become: true
   tasks:
-    - name: Install git
-      apt:
-        name: git
-        state: present
-        update_cache: yes
-
-    - name: Get the latest version app
+    - name: Fetch the latest version of application code
       git:
         repo: 'https://github.com/express42/reddit.git'
-        dest: "/home/{{ deploy_user }}/reddit"
+        dest: /home/vagrant/reddit
         version: monolith
       notify: restart puma
 
-    - name: Install app
-      become: no
+    - name: bundle install
       bundler:
         state: present
-        chdir: "/home/{{ deploy_user }}/reddit"
+        chdir: /home/vagrant/reddit
 
   handlers:
   - name: restart puma
+    become: true
     systemd: name=puma state=restarted

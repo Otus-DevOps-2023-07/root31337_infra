@@ -3,14 +3,14 @@ all:
     app:
       hosts:
         appserver:
-          ansible_host: 62.84.127.115
+          ansible_host: 158.160.111.110
     db:
       hosts:
         dbserver:
-          ansible_host: 158.160.41.146
+          ansible_host: 158.160.108.128  
 
   vars:
     remote_user: ubuntu
     private_key_file: ~/.ssh/yc-user
-    db_host_internal: 192.168.0.9
+    db_host_internal: 192.168.0.12
 

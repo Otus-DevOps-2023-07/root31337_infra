@@ -22,7 +22,7 @@
   tags: app-tag
   become: true
   vars:
-   db_host: 158.160.33.133
+   db_host: 158.160.58.137
   tasks:
     - name: Add unit file for Puma
       copy:
@@ -63,4 +63,4 @@
   handlers:
   - name: restart puma
     become: true
-    systemd: name=puma state=restarted
+    systemd: name=puma state=restarted  

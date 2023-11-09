@@ -3,7 +3,7 @@
   hosts: app
   become: true
   vars:
-   db_host: 158.160.33.133
+   db_host: 192.168.56.10
   tasks:
     - name: Add unit file for Puma
       copy:

@@ -1,19 +1,20 @@
 ---
-- name: Configure hosts and deploy app
+- name: Configure hosts & deploy application
   hosts: all
-  become: yes
   vars:
-    mongo_bind_ip: 0.0.0.0
+    mongo_bind_ip: 0.0.0.0 # <-- Переменная задается в блоке vars
+    db_host: 192.168.56.10 # <-- подставьте сюда ваш IP
   tasks:
-    - name: Change mongodb config file
+    - name: Change mongo config file
+      become: true
       template:
         src: templates/mongod.conf.j2
-        dest: /etc/mongod.conf
+        dest: /etc/mongodb.conf
         mode: 0644
-      tags: db-tag
-      notify: restart mongod
+      tags: db-tag # <-- Список тэгов для задач
 
     - name: Add unit file for Puma
+      become: true
       copy:
         src: files/puma.service
         dest: /etc/systemd/system/puma.service
@@ -24,26 +25,18 @@
       template:
         src: templates/db_config.j2
         dest: /home/ubuntu/db_config
-        owner: ubuntu
-        group: ubuntu
       tags: app-tag
 
-    - name: Enable Puma
+    - name: enable puma
+      become: true
       systemd: name=puma enabled=yes
       tags: app-tag
 
-    - name: Install git
-      apt:
-        name: git
-        state: present
-        update_cache: yes
-      tags: deploy-tag
-
-    - name: Get the latest version app
+    - name: Fetch the latest version of application code
       git:
         repo: 'https://github.com/express42/reddit.git'
         dest: /home/ubuntu/reddit
-        version: monolith
+        version: monolith # <-- Указываем нужную ветку
       tags: deploy-tag
       notify: reload puma
 
@@ -53,11 +46,15 @@
         chdir: /home/ubuntu/reddit
       tags: deploy-tag
 
-  handlers:
+
+
+
+  handlers: # <-- Добавим блок handlers и задачу
   - name: restart mongod
     become: true
     service: name=mongod state=restarted
-
   - name: reload puma
     become: true
     systemd: name=puma state=restarted
+
+    

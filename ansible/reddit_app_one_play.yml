@@ -3,7 +3,7 @@
   hosts: all
   vars:
     mongo_bind_ip: 0.0.0.0 # <-- Переменная задается в блоке vars
-    db_host: 158.160.33.133 # <-- подставьте сюда ваш IP
+    db_host: 158.160.58.137 # <-- подставьте сюда ваш IP
   tasks:
     - name: Change mongo config file
       become: true
@@ -44,8 +44,8 @@
       bundler:
         state: present
         chdir: /home/ubuntu/reddit
-      tags: deploy-tag
-
+      tags: deploy-tag    
+    
   handlers: # <-- Добавим блок handlers и задачу
   - name: restart mongod
     become: true

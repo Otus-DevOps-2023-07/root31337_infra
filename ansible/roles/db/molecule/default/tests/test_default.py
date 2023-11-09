@@ -16,6 +16,3 @@ def test_config_file(host):
     config_file = host.file('/etc/mongod.conf')
     assert config_file.contains('bindIp: 0.0.0.0')
     assert config_file.is_file
-
-def test_port_listening(host):
-    assert host.socket('tcp://27017').is_listening

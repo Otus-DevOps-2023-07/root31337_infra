@@ -1,7 +1,7 @@
 ---
 plugin: yc_compute
 folders:
-  - b1g0bgapni0osi095ffl
+  - b1g5q2lccug3i0j92ksh
 filters:
   - status == 'RUNNING'
 auth_kind: serviceaccountfile
